@@ -9,7 +9,15 @@ import React, {useState, useEffect} from 'react';
 //}
 
 function CatButton() {
-    const [cats, setCats]= useState([]);
+    const [cats, setCats]= useState([{
+        "breeds": [
+          
+        ],
+        "id": "MTQ5NjUwNQ",
+        "url": "https://cdn2.thecatapi.com/images/MTQ5NjUwNQ.jpg",
+        "width": 4272,
+        "height": 2848
+      }]);
     
     useEffect(function () {
         const fetchData = async function() {
@@ -19,12 +27,17 @@ function CatButton() {
         }
             
         fetchData()
-        },[]);// do we need a dependency leave empty and add brycen fix
-        // try with cats and brycen fix after lunch
+        },[]);// do we need a dependency leave empty
+        // try with cats
+
+    let exists = false;
+    if (cats[0].url) {
+        exists = true;
+    }
 
     return (
         <>
-            <img src={cats[0].url}></img>
+            {exists && <img src={cats[0].url} alt="MEOW"></img>}
             <button className="cat-button">GET ME A CAT FOR MY LIFE</button>
         </>
         );
