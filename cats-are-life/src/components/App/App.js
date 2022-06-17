@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       <h1>CATS ARE LIFE!</h1>
       <CatButton getCats={currentCats}/>
-      <button className="cat-button" onClick={handleClick}>GET ME A CAT FOR MY LIFE</button>
+      <button onClick={handleClick}>GET ME A CAT FOR MY LIFE</button>
     </div>
   );
 }
