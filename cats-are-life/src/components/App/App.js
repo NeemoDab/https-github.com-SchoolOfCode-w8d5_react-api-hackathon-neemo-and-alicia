@@ -1,17 +1,18 @@
-
+import React, {useState} from "react";
 import './App.css';
-import CatButton from '../CatButton';
+import CatDisplay from '../CatButton';
 
-function handleClick() {
-  CatButton();
+function HandleClick() {
+  const [isClicked, setIsClicked] = useState(false);
+  
 }
 
 function App() {
   return (
     <div className="App">
       <h1>CATS ARE LIFE!</h1>
-      <CatButton />
-      <button className="cat-button" onClick={handleClick}>GET ME A CAT FOR MY LIFE</button>
+      <CatDisplay />
+      <button className="cat-button" onClick={HandleClick}>GET ME A CAT FOR MY LIFE</button>
     </div>
   );
 }

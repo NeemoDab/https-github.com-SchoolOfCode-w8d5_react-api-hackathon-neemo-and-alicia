@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 //PLAN
 //create function CatButton({handleClick}){
 // logic creating button 
@@ -9,7 +9,7 @@ import React, {useState, useEffect} from 'react';
 //}
 
 
-function CatButton() {
+function CatDisplay() {
     const [cats, setCats]= useState([{
         "breeds": [
           
@@ -20,29 +20,20 @@ function CatButton() {
         "height": 2848
       }]);
     
-    useEffect(function () {
-        const fetchData = async function() {
-            const response = await fetch(`https://api.thecatapi.com/v1/images/search`);
-            const data = await response.json();
-            setCats(data);
+    const fetchData = async function() {
+        const response = await fetch(`https://api.thecatapi.com/v1/images/search`);
+        const data = await response.json();
+        setCats(data[0].url);
         }
             
         fetchData()
-        }, []);//if no dependency OR dependency [cats] app loads without errors but is stuck in infite loop of getting cats
-      
-
-    let exists = false;
-    if (cats[0].url) {
-        exists = true;
-    }
 
     return (
         <>
-            {exists && <img src={cats[0].url} alt="MEOW"></img>}
-
+            <img src={cats[0].url} alt="MEOW"></img>
         </>
         );
 
 }
 
-export default CatButton;
+export default CatDisplay;
