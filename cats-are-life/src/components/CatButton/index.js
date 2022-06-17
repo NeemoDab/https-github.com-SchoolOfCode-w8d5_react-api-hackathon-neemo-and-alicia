@@ -19,9 +19,8 @@ function CatButton() {
         }
             
         fetchData()
-        }, []);
-
-        
+        },[]);// do we need a dependency leave empty and add brycen fix
+        // try with cats and brycen fix after lunch
 
     return (
         <>
