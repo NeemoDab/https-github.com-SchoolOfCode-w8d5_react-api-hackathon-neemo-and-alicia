@@ -8,6 +8,7 @@ import React, {useState, useEffect} from 'react';
 //display image may need to be a seperate component
 //}
 
+
 function CatButton() {
     const [cats, setCats]= useState([{
         "breeds": [
@@ -27,8 +28,8 @@ function CatButton() {
         }
             
         fetchData()
-        },[]);// do we need a dependency leave empty
-        // try with cats
+        }, []);//if no dependency OR dependency [cats] app loads without errors but is stuck in infite loop of getting cats
+      
 
     let exists = false;
     if (cats[0].url) {
@@ -38,7 +39,7 @@ function CatButton() {
     return (
         <>
             {exists && <img src={cats[0].url} alt="MEOW"></img>}
-            <button className="cat-button">GET ME A CAT FOR MY LIFE</button>
+
         </>
         );
 
