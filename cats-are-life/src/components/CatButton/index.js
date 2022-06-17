@@ -21,10 +21,11 @@ function CatButton() {
         fetchData()
         }, []);
 
-        console.log(cats);
+        
 
     return (
         <>
+            <img src={cats[0].url}></img>
             <button className="cat-button">GET ME A CAT FOR MY LIFE</button>
         </>
         );
